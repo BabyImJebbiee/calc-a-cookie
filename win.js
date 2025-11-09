@@ -3,6 +3,15 @@ function gameWin() {
   winScreen.style.display = "flex";
   winScreen.classList.add("active");
 
+  // ซ่อนไม้พายและปุ่ม Stir 
+  const spatula = document.getElementById("spatula-img");
+  const stirBtn = document.getElementById("stir-btn");
+  if(spatula){
+    spatula.style.display = "none";
+    spatula.style.opacity = "0";
+  }
+  if(stirBtn) stirBtn.style.display = "none";
+
   // หยุดเพลงหลัก
   const bgm = document.getElementById("bgm");
   if (bgm && !bgm.paused) {
@@ -10,18 +19,12 @@ function gameWin() {
     bgm.currentTime = 0;
   }
 
-  // เล่นเสียง
+  // เล่นเสียงชนะ
   const winSound = new Audio("asset/bgm/yay.mp3");
   winSound.volume = 0.7;
   winSound.play();
 
-  // หน้า Win
-const homeBtn = document.getElementById("home-btn");
-homeBtn.onclick = () => {
-  // เรียกฟังก์ชันรีเซ็ตเกม
-  resetGame();
-};
-
+  // ปุ่ม Home
+  const homeBtn = document.getElementById("home-btn");
+  homeBtn.onclick = () => resetGame();
 }
-
-window.gameWin = gameWin;

@@ -17,10 +17,31 @@ function resetGame() {
   // รีเซ็ตตัวแปรเกม
   hearts = 3;
   currentIngredient = 0;
-  phase = "ingredient";
+  phase = "ingredient"; // ✅ เฟสกลับเป็น ingredient
   usedQuestions = [];
   renderHearts();
-  showIngredient();
+
+  // รีเซ็ต element ของเกม
+  const ingredient = document.getElementById("ingredient-img");
+  const spatula = document.getElementById("spatula-img");
+  const stirBtn = document.getElementById("stir-btn");
+  const popup = document.getElementById("popup-btn-container");
+
+  if(ingredient){
+    ingredient.style.display = "block";   // ✅ แสดงวัตถุดิบ
+    ingredient.style.opacity = "1";
+    showIngredient();
+  }
+  if(spatula){
+    spatula.style.display = "none";       // ✅ ซ่อนไม้พาย
+    spatula.style.opacity = "0";
+    spatula.style.transform = "translate(-50%, -60%)"; // รีเซ็ตตำแหน่ง
+  }
+  if(stirBtn) stirBtn.style.display = "none"; // ✅ ซ่อนปุ่ม Stir
+  if(popup) popup.style.display = "none";
+
+  // รีเซ็ตปุ่มคำตอบ
+  document.querySelectorAll(".choice-btn").forEach(btn => btn.disabled = false);
 
   // หยุด BGM
   const bgm = document.getElementById("bgm");
@@ -28,13 +49,8 @@ function resetGame() {
     bgm.pause();
     bgm.currentTime = 0;
   }
-}
 
-// ปุ่ม Home ทั้ง Win และ Lose
-document.addEventListener('DOMContentLoaded', () => {
-  const homeBtnWin = document.getElementById("home-btn");
-  const homeBtnLose = document.getElementById("home-btn-lose");
-  if(homeBtnWin) homeBtnWin.onclick = () => resetGame();
-  if(homeBtnLose) homeBtnLose.onclick = () => resetGame();
-});
+  // รีเซ็ต timer
+  clearInterval(timer);
+}
 

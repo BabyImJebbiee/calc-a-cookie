@@ -215,7 +215,7 @@ body {
  
 }
 
-/* timer-container  */
+/* timer-container เป็นพื้นหลังเฉย ๆ ไม่ pop-up */
 #timer-container {
   background: url("asset/game/Timer.PNG") center/cover no-repeat;
   width: 150px;
@@ -229,7 +229,7 @@ body {
   z-index:11;
 }
 
-/* เวลา */
+/* เวลาอยู่บนภาพ */
 #timer-text {
   font-family: 'tintin';
   font-size: 30px;
@@ -268,11 +268,12 @@ body {
 }
 
 
+/* animation สำหรับคน stirring แบบ clone */
 #paddle {
   position: absolute;
   top:65%;
   left: 50%;
-  transform-origin: center bottom; 
+  transform-origin: center bottom; /* จุดหมุนอยู่ตรงด้ามไม้พาย */
   z-index: 5;
 }
 .screen {
@@ -339,9 +340,9 @@ body {
 #serve-btn {
   width: 140px;
   height: 70px;
-  position: absolute;      
-  top: 40%;                
-  left: 43%;               
+  position: absolute;      /* ให้วางแบบอิสระ */
+  top: 40%;                /* กลางแนวตั้ง */
+  left: 43%;               /* กลางแนวนอน */
   font-size: 20px;
   font-family: 'tintin';
   cursor: pointer;
@@ -358,10 +359,10 @@ body {
 
 /* หน้าชนะ */
 #win-screen {
-  display: none; 
+  display: none; /* hidden จะใช้ JS แสดง */
   width: 800px;
   height: 600px;
-  background-image: url('asset/End/Win.PNG'); 
+  background-image: url('asset/End/Win.PNG'); /* ใส่ภาพหนูดี */
   border: 10px solid #000;
   border-radius: 20px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.25);
@@ -375,7 +376,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
+  justify-content: flex-end; /* ปุ่มอยู่ด้านล่าง */
   align-items: center;
 }
 .win-bg {
@@ -390,10 +391,10 @@ body {
 
 /* ปุ่ม home */
 #home-btn {
-  position: absolute; 
+  position: absolute; /* ให้วางแบบอิสระ */
   top: 30%;       
-  left: 50%;          
-  transform: translateX(-50%); 
+  left: 50%;          /* กึ่งกลางแกน X */
+  transform: translateX(-50%); /* จัดให้อยู่กลางแนวนอน */
   border: none;
   background: none;
   padding: 0;
@@ -402,12 +403,12 @@ body {
 }
 
 #home-btn:active {
-  transform: translateX(-50%) scale(0.95); 
+  transform: translateX(-50%) scale(0.95); /* กดแล้วเด้ง */
 }
 
 #home-btn img {
   display: block;
-  width: 200px; 
+  width: 200px; /* ขนาดภาพของปุ่ม ปรับได้ตามต้องการ */
   height: auto;
 }
 /* หน้าฉากแพ้ */
@@ -426,9 +427,10 @@ body {
 }
 
 .lose-container {
-  position: relative; 
+  position: relative; /* ให้ absolute ปุ่มอ้างอิงจาก container */
   width: 100%;
   height: 100%;
+  /* ลบ flex ออกถ้าไม่จำเป็น */
   display: block;
 }
 

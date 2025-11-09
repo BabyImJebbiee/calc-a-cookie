@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleTimeUp(){
     wrongSound.play();
     removeHeart();
-    showPopupMessage("หมดเวลา!");
+    showPopupMessage("หมดเวลา! 😢");
   }
 
   // ====== แสดงคำถาม ======
@@ -218,12 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ====== วัตถุดิบ ======
   function showIngredient() {
-    const ingredient = document.getElementById("ingredient-img");
-    ingredient.style.transition = "";
-    ingredient.style.transform = "translate(-50%,-50%) scale(1)";
-    ingredient.style.opacity = "1";
-    ingredient.src = `asset/game/${ingredients[currentIngredient].img}`;
-  }
+  const ingredient = document.getElementById("ingredient-img");
+  ingredient.style.display = "block"; 
+  ingredient.style.transition = "";
+  ingredient.style.transform = "translate(-50%,-50%) scale(1)";
+  ingredient.style.opacity = "1";
+  ingredient.src = `asset/game/${ingredients[currentIngredient].img}`;
+}
+
 
   function throwIngredient() {
     const ingredient = document.getElementById("ingredient-img");
@@ -287,11 +289,11 @@ function startStirPhase() {
 
 // ====== เกมชนะ/แพ้ ======
 function gameOver() {
-
+  alert("แพ้แล้ว! 😢");
 }
 
 function gameWin() {
-  
+  alert("ชนะแล้ว! 🎉");
 }
 
 // ====== Pop-up ทุก element ======
