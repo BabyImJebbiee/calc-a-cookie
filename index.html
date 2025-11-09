@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calc-a-Cookie</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ฉากถัดไปเริ่มซ่อน */
+    #next-scene {
+      display: none;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #fce7d0; /* ตัวอย่างพื้นหลัง */
+      text-align: center;
+      padding-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+
+    <!-- หัวเกม -->
+    <h1 id="game-header">🍪 Calc-a-Cookie! 🍪</h1>
+
+<!-- หน้าเมนูหลัก -->
+<div id="game-container" class="screen active">
+  <button id="start-btn" class="pure-btn">
+  <img src="asset/button/Play.PNG" alt="เริ่มเกม">
+  </button>
+</div>
+
+<!-- หน้าจอเกม -->
+<div id="game-screen" class="screen">
+
+  <!-- กรอบเวลา -->
+  <div id="timer-container">
+    <p id="timer-text">120</p>
+  </div>
+
+  <!-- หัวใจชีวิต -->
+  <div id="lives-container" class="pop-up"></div>
+
+  <!-- วัตถุดิบ -->
+  <div id="ingredient-container" class="pop-up">
+    <img id="ingredient-img" src="asset/game/Butter.PNG" alt="วัตถุดิบ">
+  </div>
+
+  <!-- ข้อความถูก/ผิด -->
+  <div id="result-message" class="result-message"></div>
+
+  <!-- ไม้พาย -->
+  <img id="spatula-img" src="asset/game/Stir.PNG" style="display:none; position:absolute; top:65%; left:50%; width:150px;">
+
+  <!-- คน -->
+  <img id="person" src="asset/game/Stir.PNG" alt="คน" style="display:none; position:absolute; top:50%; left:40%; transform:translate(-50%, -50%); width:150px;">
+
+  <!-- ปุ่ม Stir -->
+  <button id="stir-btn" style="display:none; position:absolute; top:80%; left:50%; transform:translateX(-50%);">Stir!</button>
+
+  <!-- ชามคุกกี้ -->
+  <div id="bowl-container" class="pop-up">
+    <img id="bowl-img" src="asset/game/Bowl.PNG" alt="ชามคุกกี้">
+  </div>
+
+  <!-- พื้นหลังโจทย์ -->
+  <div id="question-background" class="pop-up">
+    <img src="asset/game/Question .PNG" alt="พื้นหลังคำถาม">
+  </div>
+
+  <!-- ข้อความโจทย์ -->
+  <p id="question-text" class="pop-up">คำถาม</p>
+
+  <!-- ตัวเลือกคำตอบ -->
+  <div id="choices-container" class="pop-up">
+    <button class="choice-btn" data-answer="0">ตัวเลือก 1</button>
+    <button class="choice-btn" data-answer="1">ตัวเลือก 2</button>
+    <button class="choice-btn" data-answer="2">ตัวเลือก 3</button>
+  </div>
+
+  <!-- ปุ่ม popup หลังตอบถูก -->
+  <div id="popup-btn-container" class="hidden">
+    <p id="popup-text"></p>
+    <button id="popup-btn">Add</button>
+  </div>
+
+</div>
+
+<!-- ฉากอบ -->
+<div id="oven-screen" class="screen">
+  <div class="oven-container">
+    <div id="bake-message" class="bake-message">Baking...</div>
+    <button id="serve-btn">Serve</button>
+  </div>
+</div>
+
+<!-- หน้าชนะเกม -->
+<div id="win-screen" class="screen">
+  <div class="win-container">
+    <button id="home-btn"><img src="asset/button/Home.PNG" alt="Home"></button>
+  </div>
+</div>
+
+<!-- ฉากแพ้ -->
+<div id="lose-screen" class="screen">
+  <div class="lose-container">
+    <button id="home-btn-lose"><img src="asset/button/TryAgain.PNG" alt="Home"></button>
+  </div>
+</div>
+
+
+  <!-- เพลง BGM -->
+  <audio id="bgm" src="asset/bgm/funny-bgm-240795.mp3"></audio>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+  <script src="stir-oven.js"></script>
+  <script src="reset-game.js"></script>
+  <script src="win.js"></script>
+  <script src="lose.js"></script>
+
+</body>
+</html>
+
+
+
